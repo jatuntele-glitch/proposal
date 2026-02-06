@@ -29,7 +29,6 @@
     .yes { background: #ff3366; color: white; }
     .no  { background: gray; color: white; position: absolute; }
 
-    /* Hearts animation */
     .heart {
       position: fixed;
       bottom: -20px;
@@ -45,10 +44,10 @@
   </style>
 </head>
 
-<body>
+<body onclick="startMusic()">
 
-  <!-- 🎵 Apna Romantic Song -->
-  <audio autoplay loop>
+  <!-- Music -->
+  <audio id="bgMusic" loop>
     <source src="song.mp3" type="audio/mpeg">
   </audio>
 
@@ -60,6 +59,12 @@
 
   <script>
     const noBtn = document.getElementById("noBtn");
+    const music = document.getElementById("bgMusic");
+
+    // Start music on first tap (mobile autoplay fix)
+    function startMusic() {
+      music.play();
+    }
 
     // Running NO button
     noBtn.addEventListener("mouseover", () => {
@@ -69,7 +74,7 @@
       noBtn.style.top = y + "px";
     });
 
-    // Hearts animation on YES
+    // Hearts on YES
     function showLove() {
       alert("Yay! I love you Riya Ji ❤️");
 
